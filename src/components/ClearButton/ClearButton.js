@@ -3,9 +3,9 @@ import classes from './ClearButton.module.css';
 
 const clearButton = (props) => {
     return (
-        <button className={classes}>
-            
-        </button>
+        <div className={classes.ClearButton}>
+            {props.children}
+        </div>
     );
 };
 
