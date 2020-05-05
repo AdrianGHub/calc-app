@@ -3,7 +3,8 @@ import classes from './ClearButton.module.css';
 
 const clearButton = (props) => {
     return (
-        <div className={classes.ClearButton}>
+        <div className={classes.ClearButton}
+        onClick={() => props.handleClear()}>
             {props.children}
         </div>
     );
