@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   inputDecValueHandler = (value) => {
-    if(this.state.input.indexOf === -1) {
+    if(this.state.input.indexOf(".") === -1) {
       this.setState({input: this.state.input + value})
     }
   }
@@ -42,14 +42,50 @@ class App extends Component {
       this.state.operator = "plus"
   }
 
+  subtractValueHandler = () => {
+    this.state.previousNumber = this.state.input;
+    this.setState({input: ""})
+    this.state.operator = "minus"
+  }
+
+  multiplyValueHandler = () => {
+    this.state.previousNumber = this.state.input;
+    this.setState({input: ""})
+    this.state.operator = "multiply"
+  }
+
+  divideValueHandler = () => {
+    this.state.previousNumber = this.state.input;
+    this.setState({input: ""})
+    this.state.operator = "divide"
+  }
+
+
   evalValueHandler = () => {
       this.state.currentNumber = this.state.input;
 
-
-    if (this.state.operator === "plus") {
+    switch(this.state.operator) {
+      case "plus": 
       this.setState({
-        input: parseFloat(this.state.previousNumber) + parseFloat(this.state.currentNumber)
-      })
+        input: (parseFloat(this.state.previousNumber) + parseFloat(this.state.currentNumber)).toFixed(2)})
+        break;
+        case "minus": 
+      this.setState({
+        input: (parseFloat(this.state.previousNumber) - parseFloat(this.state.currentNumber)).toFixed(2)})
+        break;
+        case "multiply": 
+      this.setState({
+        input: (parseFloat(this.state.previousNumber) * parseFloat(this.state.currentNumber)).toFixed(2)})
+        break;
+        case "divide": 
+      this.setState({
+        input: (parseFloat(this.state.previousNumber) / parseFloat(this.state.currentNumber)).toFixed(2)})
+        break;
+        default:
+        this.setState({
+          input: "Invalid operation"})
+        break;
+    
     } 
 
   }
@@ -67,13 +103,13 @@ class App extends Component {
 						<Button handleClick={this.inputValueHandler}>7</Button>
 						<Button handleClick={this.inputValueHandler}>8</Button>
 						<Button handleClick={this.inputValueHandler}>9</Button>
-						<Button handleClick={this.inputValueHandler}>/</Button>
+						<Button handleClick={this.divideValueHandler}>/</Button>
 					</div>
 					<div className={classes.Row}>
 						<Button handleClick={this.inputValueHandler}>4</Button>
 						<Button handleClick={this.inputValueHandler}>5</Button>
 						<Button handleClick={this.inputValueHandler}>6</Button>
-						<Button handleClick={this.inputValueHandler}>*</Button>
+						<Button handleClick={this.multiplyValueHandler}>*</Button>
 					</div>
 					<div className={classes.Row}>
 						<Button handleClick={this.inputValueHandler}>3</Button>
@@ -85,7 +121,7 @@ class App extends Component {
 						<Button handleClick={this.inputDecValueHandler}>.</Button>
 						<Button handleClick={this.inputZeroValueHandler}>0</Button>
 						<Button handleClick={this.evalValueHandler}>=</Button>
-						<Button handleClick={this.inputValueHandler}>-</Button>
+						<Button handleClick={this.subtractValueHandler}>-</Button>
 					</div>
 					<div className={classes.Row}>
 						<ClearButton handleClear={this.clearButtonHandler}>Clear</ClearButton>
