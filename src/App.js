@@ -9,7 +9,7 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-      value: "",
+      input: "",
       previousNumber: "",
       currentNumber: "",
       operator: ""
@@ -17,7 +17,23 @@ class App extends Component {
   }
   
   inputValueHandler = (value) => {
+    this.setState({input: this.state.input + value})
+  }
 
+  inputDecValueHandler = (value) => {
+    if(this.state.input.indexOf === -1) {
+      this.setState({input: this.state.input + value})
+    }
+  }
+
+  clearButtonHandler = () => {
+    this.setState({input: ""});
+  }
+
+  inputZeroValueHandler = (value) => {
+    if (this.state.input !== "") {
+      this.setState({input: this.state.input + value})
+    }
   }
 
 	render() {
@@ -25,34 +41,36 @@ class App extends Component {
 			<div className={classes.App}>
 				<div className={classes.CalcWrapper}>
 					<div className={classes.Row}>
-						<Input></Input>
+						<Input>
+            {this.state.input}
+            </Input>
 					</div>
 					<div className={classes.Row}>
-						<Button>7</Button>
-						<Button>8</Button>
-						<Button>9</Button>
-						<Button>/</Button>
+						<Button handleClick={this.inputValueHandler}>7</Button>
+						<Button handleClick={this.inputValueHandler}>8</Button>
+						<Button handleClick={this.inputValueHandler}>9</Button>
+						<Button handleClick={this.inputValueHandler}>/</Button>
 					</div>
 					<div className={classes.Row}>
-						<Button>4</Button>
-						<Button>5</Button>
-						<Button>6</Button>
-						<Button>*</Button>
+						<Button handleClick={this.inputValueHandler}>4</Button>
+						<Button handleClick={this.inputValueHandler}>5</Button>
+						<Button handleClick={this.inputValueHandler}>6</Button>
+						<Button handleClick={this.inputValueHandler}>*</Button>
 					</div>
 					<div className={classes.Row}>
-						<Button>3</Button>
-						<Button>2</Button>
-						<Button>1</Button>
-						<Button>+</Button>
+						<Button handleClick={this.inputValueHandler}>3</Button>
+						<Button handleClick={this.inputValueHandler}>2</Button>
+						<Button handleClick={this.inputValueHandler}>1</Button>
+						<Button handleClick={this.inputValueHandler}>+</Button>
 					</div>
 					<div className={classes.Row}>
-						<Button>.</Button>
-						<Button>0</Button>
-						<Button>=</Button>
-						<Button>-</Button>
+						<Button handleClick={this.inputDecValueHandler}>.</Button>
+						<Button handleClick={this.inputZeroValueHandler}>0</Button>
+						<Button handleClick={this.inputEvalValueHandler}>=</Button>
+						<Button handleClick={this.inputValueHandler}>-</Button>
 					</div>
 					<div className={classes.Row}>
-						<ClearButton>Clear</ClearButton>
+						<ClearButton handleClear={this.clearButtonHandler}>Clear</ClearButton>
 					</div>
 				</div>
 			</div>

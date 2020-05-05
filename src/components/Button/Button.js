@@ -10,8 +10,9 @@ const button = (props) => {
 		<div
 			className={[
 				classes.Button,
-				isOperator(props.children) ? "" : classes.Operator
-			].join(' ')}
+				isOperator(props.children) ? "" : classes.Operator,
+			].join(" ")}
+			onClick={() => props.handleClick(props.children)}
 		>
 			{props.children}
 		</div>
