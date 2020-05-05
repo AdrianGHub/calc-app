@@ -36,6 +36,24 @@ class App extends Component {
     }
   }
 
+  addValueHandler = () => {
+      this.state.previousNumber = this.state.input;
+      this.setState({input: ""})
+      this.state.operator = "plus"
+  }
+
+  evalValueHandler = () => {
+      this.state.currentNumber = this.state.input;
+
+
+    if (this.state.operator === "plus") {
+      this.setState({
+        input: parseFloat(this.state.previousNumber) + parseFloat(this.state.currentNumber)
+      })
+    } 
+
+  }
+
 	render() {
 		return (
 			<div className={classes.App}>
@@ -61,12 +79,12 @@ class App extends Component {
 						<Button handleClick={this.inputValueHandler}>3</Button>
 						<Button handleClick={this.inputValueHandler}>2</Button>
 						<Button handleClick={this.inputValueHandler}>1</Button>
-						<Button handleClick={this.inputValueHandler}>+</Button>
+						<Button handleClick={this.addValueHandler}>+</Button>
 					</div>
 					<div className={classes.Row}>
 						<Button handleClick={this.inputDecValueHandler}>.</Button>
 						<Button handleClick={this.inputZeroValueHandler}>0</Button>
-						<Button handleClick={this.inputEvalValueHandler}>=</Button>
+						<Button handleClick={this.evalValueHandler}>=</Button>
 						<Button handleClick={this.inputValueHandler}>-</Button>
 					</div>
 					<div className={classes.Row}>
