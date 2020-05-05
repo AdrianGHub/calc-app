@@ -3,7 +3,7 @@ import classes from './Input.module.css';
 
 const input = (props) => {
     return (
-        <input className={classes.Input} />
+    <div className={classes.Input}>{props.children}</div>
     );
 };
 
