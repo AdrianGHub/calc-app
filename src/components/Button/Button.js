@@ -1,12 +1,21 @@
-import React from 'react';
-import classes from '../Button/Button.module.css';
+import React from "react";
+import classes from "../Button/Button.module.css";
 
 const button = (props) => {
-    return (
-        <button className={classes.Button}>
-            {props.children}
-        </button>
-    );
-};          
+	const isOperator = (value) => {
+		return !isNaN(value) || value === "." || value === "=";
+	};
+
+	return (
+		<div
+			className={[
+				classes.Button,
+				isOperator(props.children) ? "" : classes.Operator
+			].join(' ')}
+		>
+			{props.children}
+		</div>
+	);
+};
 
 export default button;
