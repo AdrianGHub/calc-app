@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
+import classes from './App.module.css';
 import Button from './components/Button/Button';
+import Input from './components/Input/Input';
+import ClearButton from './components/ClearButton/ClearButton';
 
 function App() {
   return (
-    <div className="App">
-            <div className="CalcWrapper">
+    <div className={classes.App}>
+            <div className={classes.CalcWrapper}>
+              <Input />
               <div className="Row">
                 <Button>7</Button>
                 <Button>8</Button>
@@ -31,7 +34,7 @@ function App() {
                 <Button>-</Button>
               </div>
               <div className="Row">
-                <Button>Clear</Button>
+                <ClearButton>Clear</ClearButton>
               </div>
             </div>
             
