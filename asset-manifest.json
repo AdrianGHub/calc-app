@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AdrianGHub/calc-app/static/css/main.b8d0a72a.chunk.css",
+    "main.js": "/AdrianGHub/calc-app/static/js/main.43d96e64.chunk.js",
+    "main.js.map": "/AdrianGHub/calc-app/static/js/main.43d96e64.chunk.js.map",
+    "runtime-main.js": "/AdrianGHub/calc-app/static/js/runtime-main.66a1c91a.js",
+    "runtime-main.js.map": "/AdrianGHub/calc-app/static/js/runtime-main.66a1c91a.js.map",
+    "static/js/2.c9ac1d07.chunk.js": "/AdrianGHub/calc-app/static/js/2.c9ac1d07.chunk.js",
+    "static/js/2.c9ac1d07.chunk.js.map": "/AdrianGHub/calc-app/static/js/2.c9ac1d07.chunk.js.map",
+    "index.html": "/AdrianGHub/calc-app/index.html",
+    "precache-manifest.2e3c52901dedb8aa53bcd68e1e75271e.js": "/AdrianGHub/calc-app/precache-manifest.2e3c52901dedb8aa53bcd68e1e75271e.js",
+    "service-worker.js": "/AdrianGHub/calc-app/service-worker.js",
+    "static/css/main.b8d0a72a.chunk.css.map": "/AdrianGHub/calc-app/static/css/main.b8d0a72a.chunk.css.map",
+    "static/js/2.c9ac1d07.chunk.js.LICENSE.txt": "/AdrianGHub/calc-app/static/js/2.c9ac1d07.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66a1c91a.js",
+    "static/js/2.c9ac1d07.chunk.js",
+    "static/css/main.b8d0a72a.chunk.css",
+    "static/js/main.43d96e64.chunk.js"
+  ]
+}
