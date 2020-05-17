@@ -1,14 +1,24 @@
 import React from 'react';
-import { default as BemCssModules} from 'bem-css-modules';
-import { default as MainKeyboardStyles} from './MainKeyboard.module.scss';
+import { observer, inject } from 'mobx-react';
+import { default as BemCssModules } from 'bem-css-modules';
 import { Button } from '../Button/Button';
+import { CalculatorStore } from '../../stores/CalculatorStore';
+import { default as MainKeyboardStyles } from './MainKeyboard.module.scss';
+
+interface MainKeyboardProps {
+    calculatorStore?: CalculatorStore;
+}
 
 const style = BemCssModules(MainKeyboardStyles);
 
-export const MainKeyboard: React.FC = () => {
+const MainKeyboard: React.FC<MainKeyboardProps> = ({ calculatorStore }) => {
+    if (!calculatorStore) {
+        return null;
+    }
+
     return (
         <div className={style()}>
-            <Button content="%" onClick={() => console.log('keyboard klik')} />
+            <Button content="%" onClick={calculatorStore.test} />
             <Button content="CE" onClick={() => console.log('keyboard klik')} />
             <Button content="C" onClick={() => console.log('keyboard klik')} />
             <Button content="&#8634;" onClick={() => console.log('keyboard klik')} />
@@ -36,3 +46,7 @@ export const MainKeyboard: React.FC = () => {
         </div>
     );
 };
+
+const MainKeyboardConsumer = inject('calculatorStore')(observer(MainKeyboard));
+
+export { MainKeyboardConsumer as MainKeyboard };
