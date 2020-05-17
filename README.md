@@ -1,1 +1,1 @@
-## Calc React App 
+## Calc React App with TS on board :octocat: 
