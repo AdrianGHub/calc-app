@@ -1,12 +1,13 @@
 $hoverBreakpoint: 1025px;
 
 
-.button {
+.Button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: calc(25% - 1px);
     margin-bottom: 1px;
+    border: 0;
     background-color: #ddd;
     cursor: pointer;
 
