@@ -22,10 +22,10 @@ export class CalculatorStore {
 			this.displayValue === "0" ||
 			this.wasSpecialFunctionClicked
 				? (event.target as HTMLButtonElement).textContent
-				: this.displayValue + (event.target as HTMLButtonElement).textContent;
+				: this.displayValue + (event.target as HTMLElement).textContent;
 
 		if (this.wasEqualClicked) {
-			this.previousValue = 0;
+			this.previousValue = null;
 			this.repeatedValue = 0;
 			this.wasEqualClicked = false;
 		}
@@ -70,7 +70,7 @@ export class CalculatorStore {
 		this.changeDisplayValue(null);
 	}
 
-	public addition(event?: React.MouseEvent, hasRepeatedValue?: boolean): void {
+	public addition = (event?: React.MouseEvent, hasRepeatedValue?: boolean): void => {
 		this.callPreviousFunctionAndChangeIt(this.addition, hasRepeatedValue);
 
 		if (this.isFunctionDone) {
@@ -88,7 +88,7 @@ export class CalculatorStore {
 		this.afterNewValueCalculation(newValue);
 	}
 
-	public subtraction(event?: React.MouseEvent, hasRepeatedValue?: boolean): void  {
+	public subtraction = (event?: React.MouseEvent, hasRepeatedValue?: boolean): void =>  {
 		this.callPreviousFunctionAndChangeIt(
 			this.subtraction,
 			hasRepeatedValue

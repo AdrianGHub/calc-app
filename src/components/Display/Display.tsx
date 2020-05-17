@@ -28,8 +28,7 @@ const Display: React.FC<DisplayProps> = ({calculatorStore}) => {
         <div 
             className={style()}
             ref={displayRef}
-        >
-            
+        >    
             0
         </div>
     )

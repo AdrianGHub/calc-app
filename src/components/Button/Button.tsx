@@ -4,9 +4,7 @@ import { default as ButtonStyles} from './Button.module.scss';
 
 type TCalculatorFunction = () => void;
 type TConcatenateFunction = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-
-const style = BemCssModules(ButtonStyles);
-interface BUttonProps {
+interface ButtonProps {
     content: string;
     isEqual?: boolean;
     isLighter?: boolean;
@@ -14,8 +12,10 @@ interface BUttonProps {
     onClick: TCalculatorFunction | TConcatenateFunction;
 }
 
+const style = BemCssModules(ButtonStyles);
 
-export const Button: React.FC<BUttonProps> = (props) => {
+
+export const Button: React.FC<ButtonProps> = (props) => {
     const modifiers = {
         'is-equal': props.isEqual,
         'is-lighter': props.isLighter,
