@@ -1,19 +1,32 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import { default as BemCssModules } from 'bem-css-modules';
-import { default as MemoryContainerStyles } from './MemoryContainer.module.scss';
 import { Button } from '../../components/Button/Button';
+import { CalculatorStore } from '../../stores/CalculatorStore';
+import { default as MemoryContainerStyles } from './MemoryContainer.module.scss';
 
+
+interface MemoryContainerProps {
+    calculatorStore?: CalculatorStore;
+}
 
 const style = BemCssModules(MemoryContainerStyles);
 
-export const MemoryContainer: React.FC = () => {
+const MemoryContainer: React.FC<MemoryContainerProps> = ({calculatorStore}) => {
+    if (!calculatorStore) {
+        return null;
+    }
     return (
         <div className={style()}>
-            <Button content="MC" isMemeory onClick={() => console.log('memory klik')}/>
-            <Button content="MR" isMemeory onClick={() => console.log('memory klik')}/>
-            <Button content="M+" isMemeory onClick={() => console.log('memory klik')}/>
-            <Button content="M-" isMemeory onClick={() => console.log('memory klik')}/>
-            <Button content="MS" isMemeory onClick={() => console.log('memory klik')}/>
+            <Button content="MC" isMemeory onClick={calculatorStore.memoryClear}/>
+            <Button content="MR" isMemeory onClick={calculatorStore.memoryRead}/>
+            <Button content="M+" isMemeory onClick={calculatorStore.memoryAdd}/>
+            <Button content="M-" isMemeory onClick={calculatorStore.memoryMinus}/>
+            <Button content="MS" isMemeory onClick={calculatorStore.memorySet}/>
         </div>
     )
 }
+
+const MemoryContainerConsumer = inject('calculatorStore')(observer(MemoryContainer));
+
+export { MemoryContainerConsumer as MemoryContainer };
