@@ -1,4 +1,4 @@
-import { CalculatorStore } from './CalculatorStore';
+import { CalculatorStore } from "./CalculatorStore";
 
 interface IRootStore {
     calculatorStore: CalculatorStore; 

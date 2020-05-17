@@ -2,7 +2,7 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { default as BemCssModules } from 'bem-css-modules';
 import { Button } from '../Button/Button';
-import { CalculatorStore } from '../../stores/CalculatorStore';
+import { CalculatorStore } from "../../stores/CalculatorStore";
 import { default as MainKeyboardStyles } from './MainKeyboard.module.scss';
 
 interface MainKeyboardProps {
@@ -18,7 +18,7 @@ const MainKeyboard: React.FC<MainKeyboardProps> = ({ calculatorStore }) => {
 
     return (
         <div className={style()}>
-            <Button content="%" onClick={calculatorStore.test} />
+            <Button content="%" onClick={calculatorStore} />
             <Button content="CE" onClick={() => console.log('keyboard klik')} />
             <Button content="C" onClick={() => console.log('keyboard klik')} />
             <Button content="&#8634;" onClick={() => console.log('keyboard klik')} />
