@@ -15,15 +15,15 @@ interface ButtonProps {
 const style = BemCssModules(ButtonStyles);
 
 
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = ({isEqual, isLighter, isMemeory, onClick, content}) => {
     const modifiers = {
-        'is-equal': props.isEqual,
-        'is-lighter': props.isLighter,
-        'is-memory': props.isMemeory
+        'is-equal': isEqual,
+        'is-lighter': isLighter,
+        'is-memory': isMemeory
     }
 
     const onClickHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
-        props.onClick(event);
+        onClick(event);
     }
 
     return (
@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
             className={style(modifiers)}
             onClick={onClickHandler}
         >
-            {props.content}
+            {content}
         </button>
     )
 }

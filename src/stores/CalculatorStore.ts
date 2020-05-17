@@ -194,7 +194,9 @@ export class CalculatorStore {
     }
     
     public percent = (): void => {
-        this.callSpecialFunction(Number(this.previousValue) * Number(this.displayValue) / 100);
+		this.previousValue 
+		? this.callSpecialFunction(Number(this.previousValue) * Number(this.displayValue) / 100)
+		: this.callSpecialFunction(Number(this.displayValue) / 100);
     }
 
     public square = (): void => {
@@ -210,7 +212,7 @@ export class CalculatorStore {
     }
 
     private callSpecialFunction(value: number) {
-        this.wasSpecialFunctionClicked = false;
+        this.wasEqualClicked = false;
         this.wasSpecialFunctionClicked = true;
         this.changeDisplayValue(value.toString());
     }

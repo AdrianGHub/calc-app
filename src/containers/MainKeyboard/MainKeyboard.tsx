@@ -23,7 +23,7 @@ const MainKeyboard: React.FC<MainKeyboardProps> = ({ calculatorStore }) => {
             <Button content="C" onClick={calculatorStore.clear} />
             <Button content="&#8634;" onClick={calculatorStore.undo} />
             <Button content="1/x" onClick={calculatorStore.oneXth} />
-            <Button content="x(2)" onClick={calculatorStore.square} />
+            <Button content="x(2)" onClick={calculatorStore.power} />
             <Button content="sqrt" onClick={calculatorStore.square} />
             <Button content="/" onClick={calculatorStore.division} />
             <Button content="7" onClick={event => calculatorStore.concatenateNumber(event)} />
