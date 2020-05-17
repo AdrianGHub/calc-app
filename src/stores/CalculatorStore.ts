@@ -16,13 +16,13 @@ export class CalculatorStore {
         this.display = element;
     }
 
-	public concatenateNumber = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+	public concatenateNumber = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
 		this.displayValue =
 			this.displayValue === null ||
 			this.displayValue === "0" ||
 			this.wasSpecialFunctionClicked
-				? (event.target as HTMLElement).textContent
-				: this.displayValue + (event.target as HTMLElement).textContent;
+				? (event.target as HTMLButtonElement).textContent
+				: this.displayValue + (event.target as HTMLButtonElement).textContent;
 
 		if (this.wasEqualClicked) {
 			this.previousValue = 0;
@@ -170,7 +170,7 @@ export class CalculatorStore {
     }
     
 
-	public back = (): void => {
+	public undo = (): void => {
 		this.changeDisplayValue(
 			this.displayValue ? this.displayValue.slice(0, -1) : null
 		);
@@ -215,7 +215,7 @@ export class CalculatorStore {
         this.changeDisplayValue(value.toString());
     }
 
-	private callPreviousFunctionAndChangeIt(previousFunction: TSelectedFunction | null, hasRepeatedValue?: boolean): void {
+	private callPreviousFunctionAndChangeIt(previousFunction: TSelectedFunction | null, hasRepeatedValue?: boolean) {
 		if (
 			this.selectedFunction !== previousFunction &&
 			this.selectedFunction

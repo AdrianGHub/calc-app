@@ -18,30 +18,30 @@ const MainKeyboard: React.FC<MainKeyboardProps> = ({ calculatorStore }) => {
 
     return (
         <div className={style()}>
-            <Button content="%" onClick={calculatorStore} />
-            <Button content="CE" onClick={() => console.log('keyboard klik')} />
-            <Button content="C" onClick={() => console.log('keyboard klik')} />
-            <Button content="&#8634;" onClick={() => console.log('keyboard klik')} />
-            <Button content="1/x" onClick={() => console.log('keyboard klik')} />
-            <Button content="x(2)" onClick={() => console.log('keyboard klik')} />
-            <Button content="sqrt" onClick={() => console.log('keyboard klik')} />
-            <Button content="/" onClick={() => console.log('keyboard klik')} />
-            <Button content="7" onClick={() => console.log('keyboard klik')} />
-            <Button content="8" onClick={() => console.log('keyboard klik')} />
-            <Button content="9" onClick={() => console.log('keyboard klik')} />
-            <Button content="X" onClick={() => console.log('keyboard klik')} />
-            <Button content="4" onClick={() => console.log('keyboard klik')} />
-            <Button content="5" onClick={() => console.log('keyboard klik')} />
-            <Button content="6" onClick={() => console.log('keyboard klik')} />
-            <Button content="-" onClick={() => console.log('keyboard klik')} />
-            <Button content="1" onClick={() => console.log('keyboard klik')} />
-            <Button content="2" onClick={() => console.log('keyboard klik')} />
-            <Button content="3" onClick={() => console.log('keyboard klik')} />
-            <Button content="+" onClick={() => console.log('keyboard klik')} />
-            <Button content="+/-" onClick={() => console.log('keyboard klik')} />
-            <Button content="0" onClick={() => console.log('keyboard klik')} />
-            <Button content="." onClick={() => console.log('keyboard klik')} />
-            <Button content="=" isEqual onClick={() => console.log('keyboard klik')} />
+            <Button content="%" onClick={calculatorStore.percent} />
+            <Button content="CE" onClick={calculatorStore.cancel} />
+            <Button content="C" onClick={calculatorStore.clear} />
+            <Button content="&#8634;" onClick={calculatorStore.undo} />
+            <Button content="1/x" onClick={calculatorStore.oneXth} />
+            <Button content="x(2)" onClick={calculatorStore.square} />
+            <Button content="sqrt" onClick={calculatorStore.square} />
+            <Button content="/" onClick={calculatorStore.subtraction} />
+            <Button content="7" onClick={event => calculatorStore.concatenateNumber(event)} />
+            <Button content="8" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="9" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="X" onClick={calculatorStore.multiplication} />
+            <Button content="4" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="5" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="6" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="-" onClick={calculatorStore.division}/>
+            <Button content="1" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="2" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="3" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="+" onClick={calculatorStore.addition} />
+            <Button content="+/-" onClick={calculatorStore.invertNumber} />
+            <Button content="0" onClick={event => calculatorStore.concatenateNumber(event)}/>
+            <Button content="." onClick={calculatorStore.addComma} />
+            <Button content="=" isEqual onClick={calculatorStore.equal} />
 
         </div>
     );
